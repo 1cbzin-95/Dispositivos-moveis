@@ -9,6 +9,7 @@ public class Fornecedor extends Usuario {
         super(nome, cpf, email, senha, tipo);
         imoveis = new ArrayList<Imovel>();
     }
+
     public ArrayList<Imovel> getImoveis() {
         return imoveis;
     }

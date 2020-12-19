@@ -36,11 +36,12 @@ public class AdapterImovel extends ArrayAdapter<Imovel> {
         TextView descricao = (TextView)linha.findViewById(R.id.tv_descricao);
         TextView valor = (TextView)linha.findViewById(R.id.tv_valor);
         ImageView imagem = (ImageView)linha.findViewById(R.id.im_Imovel);
+
         nome.setText(imoveis.get(position).getNome());
         imagem.setImageResource(R.drawable.applacelogo);
         categoria.setText(imoveis.get(position).getCategoria());
         descricao.setText(imoveis.get(position).getDescricao());
-        //valor.setText((double) imoveis.get(position).getValorAluguel());
+        valor.setText(imoveis.get(position).getValorAluguel()+"");
 
         return linha;
     }

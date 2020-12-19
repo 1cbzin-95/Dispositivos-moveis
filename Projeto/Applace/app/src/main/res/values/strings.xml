@@ -4,13 +4,13 @@
     <string name="Imoveis">Imoveis</string>
     <string name="Fornecedores">Fornecedores</string>
 
-    <string name="Imoveis_nome">Imovel_Default</string>
+    <string name="Imoveis_nome">Nome do imovel:</string>
     <string name="Imoveis_content_descri">Imagem de um Imovel para Aluguel</string>
-    <string name="Imoveis_categoria">Imovel_Default</string>
-    <string name="Imoveis_descricao">Imovel_Default</string>
+    <string name="Imoveis_categoria">Categoria do imovel:</string>
+    <string name="Imoveis_descricao">Descrição do imovel:</string>
     <string name="Imoveis_valor">Imovel Valor 00.00</string>
 
-    <string name="Fornecedor_nome">Fornecedor_Default</string>
+    <string name="Fornecedor_nome">Nome do Fornecedor:</string>
     <string name="Fornecedor_content_descri">Imagem de um fornecedor</string>
     <string name="Fornecedor_descri">Descricao default</string>
     <string name="Fornecedor_classificacao">Imovel_Default</string>
@@ -36,6 +36,7 @@
     <string name="bt_inserirImagem">Inserir Imagem</string>
 
     <string name="data">dd/mm/aaaa</string>
+    <string name="menu_sair">Sair</string>
 
 
     <string name="hello_first_fragment">Hello first fragment</string>

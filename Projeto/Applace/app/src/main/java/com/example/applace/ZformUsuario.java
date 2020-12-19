@@ -19,7 +19,7 @@ public class ZformUsuario extends AppCompatActivity {
     private Cliente x1;
     private Fornecedor f1;
     private DBHelp db;
-
+    
     private EditText et_nome;
     private EditText et_cpf;
     private EditText et_emailcadastro;
@@ -79,3 +79,12 @@ public class ZformUsuario extends AppCompatActivity {
         });
     }
 }
+
+
+/*try {
+                    db.salvarTarefa(tarefa);//--------------------------------------------
+                    Toast.makeText(getApplicationContext(), "Tarefa Cadastrada.", Toast.LENGTH_LONG).show();
+                    finish();
+                } catch (Exception e){
+                    Toast.makeText(getApplicationContext(), "Falha no Cadastro.", Toast.LENGTH_LONG).show();
+                }*/

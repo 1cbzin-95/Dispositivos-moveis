@@ -1,9 +1,12 @@
 package com.example.applace;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(),ZformImovel.class);
                 startActivity(i);
+                finish();
             }
         });
     }
@@ -59,5 +63,20 @@ public class MainActivity extends AppCompatActivity {
     public void onRestart() {
         adapter.notifyDataSetChanged();
         super.onRestart();
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.imenu_sair:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

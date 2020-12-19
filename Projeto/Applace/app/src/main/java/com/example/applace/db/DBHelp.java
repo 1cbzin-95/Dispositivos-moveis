@@ -20,18 +20,19 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class DBHelp extends SQLiteOpenHelper {
-        private  static  final String NOME_BANCO = "aplace.db";
+        private  static  final String NOME_BANCO = "applace.db";
         private static final int VERSAO_BANCO = 1;
         private Context context;
         private SQLiteDatabase dbInstancia = null;
         private Usuario u;
+
         public DBHelp(@Nullable Context context) {
             super(context,NOME_BANCO,null,VERSAO_BANCO);
             this.context =context;
         }
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("CREATE TABLE usuario(" +
-                    "_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "nome TEXT NOT NULL," +
                     "cpf TEXT NOT NULL," +
                     "email TEXT NOT NULL," +
@@ -39,7 +40,7 @@ public class DBHelp extends SQLiteOpenHelper {
                     "tipo TEXT NOT NULL)"
             );
             db.execSQL("CREATE TABLE imovel(" +
-                    "_id INTEGER PRIMARY KEY  AUTOINCREMENT," +
+                    "id INTEGER PRIMARY KEY  AUTOINCREMENT," +
                     "idFornecedorImovel INTERGER NOT NULL," +
                     "nome TEXT NOT NULL," +
                     "categoria TEXT NOT NULL," +
@@ -83,13 +84,13 @@ public class DBHelp extends SQLiteOpenHelper {
         }
         public void excluirUsuario(Usuario usuario)throws SQLException{
             abrirEscritaDB();
-            dbInstancia.delete("usuario","_id = "+usuario.getId(),null);
+            dbInstancia.delete("usuario","id = "+usuario.getId(),null);
             fecharDB();
         }
         public Usuario buscarUsuario(Usuario usuario)throws SQLException{
             SQLiteDatabase meuBanco = getReadableDatabase();
-            String[] auxWhere = new String[]{"" +usuario.getEmail(),"" +usuario.getSenha()};
-            Cursor minhaConsulta=  meuBanco.rawQuery("SELECT _id,nome,cpf,email,senha,tipo FROM usuario Where usuario.email = ?" +" and + usuario.senha = ?",auxWhere);
+            String[] auxWhere = new String[]{"" +usuario.getEmail(),""+usuario.getSenha()};
+            Cursor minhaConsulta=  meuBanco.rawQuery("SELECT id,nome,cpf,email,senha,tipo FROM usuario Where usuario.email = ?" +" and + usuario.senha = ?",auxWhere);
             minhaConsulta.moveToFirst();
             while (! minhaConsulta.isAfterLast()) {
                 u = new Usuario(minhaConsulta.getString(1), minhaConsulta.getString(2), minhaConsulta.getString(3), minhaConsulta.getString(4), minhaConsulta.getString(5));
@@ -109,7 +110,7 @@ public class DBHelp extends SQLiteOpenHelper {
         public ArrayList<Imovel> getImoveisDB(){
             ArrayList<Imovel> imoveis = new ArrayList<>();
             SQLiteDatabase meuBanco = getReadableDatabase();
-            Cursor minhaConsulta= meuBanco.rawQuery("SELECT _id,idFornecedorImovel,nome,categoria,valorAluguel,descricao,statuss,dataDisponibilizado FROM imovel", null);
+            Cursor minhaConsulta= meuBanco.rawQuery("SELECT id,idFornecedorImovel,nome,categoria,valorAluguel,descricao,statuss,dataDisponibilizado FROM imovel", null);
             minhaConsulta.moveToFirst();
             while (! minhaConsulta.isAfterLast()) {
                 Imovel atual = new Imovel(minhaConsulta.getString(2), minhaConsulta.getString(3),
@@ -130,6 +131,7 @@ public class DBHelp extends SQLiteOpenHelper {
             if(this.dbInstancia == null){
                 this.dbInstancia=this.getWritableDatabase();
             }
+
         }
         public void abrirLeituraDB()throws SQLException{
             if(this.dbInstancia == null){

@@ -62,36 +62,46 @@ public class Imovel {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
     public String getStatuss() {
         return statuss;
     }
     public void setStatuss(String statuss) {
         this.statuss = statuss;
     }
+
     public String getImagem() {
         return imagem;
     }
+
     public void setImagem(String imagem) {
         this.imagem = imagem;
     }
+
     public Integer getIdFornecedorImovel() {
         return idFornecedorImovel;
     }
+
     public String getNomeArquivo() {
         return nomeArquivo;
     }
+
     public void setNomeArquivo(String nomeArquivo) {
         this.nomeArquivo = nomeArquivo;
     }
+
     public void setIdFornecedorImovel(Integer idFornecedorImovel) {
         this.idFornecedorImovel = idFornecedorImovel;
     }
+
     public String getDataDisponibilizado() {
         return dataDisponibilizado;
     }
+
     public void setDataDisponibilizado(String dataDisponibilizado) {
         this.dataDisponibilizado = dataDisponibilizado;
     }
+
     public ContentValues getContentValues(){
         ContentValues contValues= new ContentValues();
         contValues.put("idFornecedorImovel",this.idFornecedorImovel);
@@ -104,4 +114,5 @@ public class Imovel {
         contValues.put("dataDisponibilizado",this.dataDisponibilizado);
         return contValues;
     }
+
 }
